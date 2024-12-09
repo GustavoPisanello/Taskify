@@ -8,17 +8,19 @@ import { MobileSidebar } from "./mobile-sidebar";
 export const Navbar = () => {
     return (
         <nav className="fixed z-50 px-8 top-0 w-full justify-between h-14 border-b shadow-sm bg-white flex items-center">
-            <MobileSidebar />
-            <div className="flex items-center gap-x-4">
-                <div className="hidden md:flex">
-                    <Logo/>
+            <div className="flex gap-x-4">
+                <MobileSidebar />
+                <div className="flex items-center gap-x-4">
+                    <div className="hidden md:flex">
+                        <Logo/>
+                    </div>
+                    <Button variant="primary" size="sm" className="rounded-sm hidden md:block h-auto py-1.5 px-2">
+                        Create
+                    </Button>
+                    <Button variant="primary" size="sm" className="rounded-sm block md:hidden">
+                        <Plus  className="h-4 w-4"/>
+                    </Button>
                 </div>
-                <Button variant="primary" size="sm" className="rounded-sm hidden md:block h-auto py-1.5 px-2">
-                    Create
-                </Button>
-                <Button variant="primary" size="sm" className="rounded-sm block md:hidden">
-                    <Plus  className="h-4 w-4"/>
-                </Button>
             </div>
             <div className="flex items-center gap-x-4">
                 <OrganizationSwitcher

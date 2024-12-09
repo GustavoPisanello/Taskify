@@ -1,12 +1,12 @@
-"use=client"
+"use client"
 
 import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent } from "@/components/ui/sheet";
 import { useMobileSidebar } from "@/hooks/use-mobile-sidebar"
 import { Menu } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Sidebar } from "./sidebar";
+import { Sheet, SheetContent } from "@/components/ui/sheet";
 
 export const MobileSidebar = () => {
 
@@ -36,14 +36,21 @@ export const MobileSidebar = () => {
                 onClick={onOpen}
                 className="block md:hidden"
                 variant="ghost"
-            >
+                size="sm"     
+                       >
                 <Menu className="h-4 w-4"/>
             </Button>
-            <Sheet>
-                <SheetContent>
-                    <Sidebar/>
+           <Sheet open={isOpen} onOpenChange={onClose}>
+                <SheetContent
+                    side="left"
+                    className="p-2 pt-10"
+                >
+                    <Sidebar
+                        storageKey="t-sidebar-mobile-state"
+                    />
                 </SheetContent>
-            </Sheet>
+           </Sheet>
+           
         </>
     )
 }
